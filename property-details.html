@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | SequreHomes</title>
+  <link rel="stylesheet" href="css/details.css">
+  <script src="js/properties.js" defer></script>
+  <script src="js/details.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">SequreHomes</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#buy">Properties</a>
+        <a href="login.html">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="property-page">
+    <a class="back-link" id="properties-back-link" href="index.html#buy">&larr; All properties</a>
+
+    <section class="page-heading" id="property-heading" aria-labelledby="property-title">
+      <p class="eyebrow" id="property-status"></p>
+      <h1 id="property-title">Loading property...</h1>
+      <p class="intro" id="property-location"></p>
+    </section>
+
+    <section class="property-layout" id="property-content" aria-label="Property photo and details" hidden>
+      <div class="gallery property-gallery" aria-label="Property photo">
+        <img class="gallery-main" id="property-image" src="" alt="">
+      </div>
+
+      <aside class="property-summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Property overview</h2>
+        <p id="property-description"></p>
+
+        <section class="features" aria-labelledby="features-title">
+          <h3 id="features-title">Property details</h3>
+          <dl class="property-specs">
+            <div><dt>Type</dt><dd id="property-type"></dd></div>
+            <div><dt>Area</dt><dd id="property-area"></dd></div>
+            <div><dt>Bedrooms</dt><dd id="property-bedrooms"></dd></div>
+            <div><dt>Bathrooms</dt><dd id="property-bathrooms"></dd></div>
+            <div><dt>Parking</dt><dd id="property-parking"></dd></div>
+          </dl>
+          <ul id="property-features"></ul>
+        </section>
+
+        <div class="purchase-panel">
+          <div>
+            <p class="price-label">Price</p>
+            <p class="price" id="property-price"></p>
+          </div>
+          <a class="buy-button" id="contact-owner-link" href="payment.html">Contact the owner</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="property-not-found" id="property-not-found" aria-labelledby="not-found-title" hidden>
+      <h1 id="not-found-title">Property Not Found</h1>
+      <p>The property link may be invalid or out of date. Browse the available properties and try again.</p>
+      <a class="buy-button" href="index.html#buy">Return to properties</a>
+    </section>
+  </main>
+</body>
+</html>

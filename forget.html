@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset password | SequreHomes</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1 class="title">Reset password</h1>
+
+        <p class="auth-description">Enter your account email and Firebase will send you a secure password reset link.</p>
+        <form id="forgot-password-form">
+            <div class="field">
+                <input id="email" name="email" type="email" autocomplete="email" required>
+                <label for="email">Email address</label>
+            </div>
+
+            <div class="field">
+                <input id="reset-submit" type="submit" value="Send Reset Email">
+            </div>
+            <p class="form-message" id="forgot-password-message" role="status" aria-live="polite" hidden></p>
+
+            <div class="signup-link">
+                Remember your password? <a href="login.html">Login</a>
+            </div>
+
+        </form>
+    </div>
+
+    <script type="module" src="js/forgot-password.js"></script>
+</body>
+</html>

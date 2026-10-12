@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+
+      function hasSafeProfileFields() {
+        return request.resource.data.keys().hasOnly(['name', 'email', 'createdAt'])
+          && request.resource.data.name is string
+          && request.resource.data.email is string;
+      }
+
+      allow read: if isOwner();
+      allow create: if isOwner()
+        && hasSafeProfileFields()
+        && request.resource.data.keys().hasAll(['name', 'email', 'createdAt'])
+        && request.resource.data.createdAt == request.time;
+      allow update: if isOwner()
+        && hasSafeProfileFields()
+        && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if isOwner();
+    }
+  }
+}

@@ -1,0 +1,288 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f2f5f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.wrapper {
+    width: min(100%, 420px);
+    padding: 32px;
+    background: #fff;
+    border: 1px solid #dce2dd;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(28, 49, 39, 0.1);
+}
+
+.title {
+    text-align: center;
+    color: #176b52;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.field {
+    position: relative;
+    height: 50px;
+    margin-top: 24px;
+}
+
+.field input:not([type="submit"]) {
+    width: 100%;
+    height: 100%;
+    padding: 0 44px 0 12px;
+    border: 1px solid #b8c2d1;
+    border-radius: 6px;
+    outline: none;
+    color: #202938;
+    font-size: 16px;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field input:not([type="submit"]):focus {
+    border-color: #176b52;
+    box-shadow: 0 0 0 3px rgba(23, 107, 82, 0.14);
+}
+
+.field label {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    padding: 0 4px;
+    transform: translateY(-50%);
+    background: #fff;
+    color: #687386;
+    pointer-events: none;
+    transition: top 150ms ease, color 150ms ease, font-size 150ms ease;
+}
+
+.field input:not([type="submit"]):focus + label,
+.field input:not([type="submit"]):valid + label {
+    top: 0;
+    color: #176b52;
+    font-size: 12px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #465166;
+}
+
+.checkbox input {
+    accent-color: #176b52;
+}
+
+.pass-link a,
+.signup-link a {
+    color: #176b52;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.pass-link a:hover,
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.field input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 6px;
+    background: #176b52;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+}
+
+.field input[type="submit"]:hover {
+    background: #10543f;
+}
+
+.field input[type="submit"]:focus-visible {
+    outline: 3px solid rgba(23, 107, 82, 0.35);
+    outline-offset: 3px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    display: grid;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 4px;
+    background: #fff;
+    color: #687386;
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    color: #176b52;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #176b52;
+    outline-offset: 2px;
+}
+
+.password-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.password-toggle svg[hidden] {
+    display: none;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 22px;
+    color: #46534c;
+}
+
+.form-message {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    background: #edf5f0;
+    color: #10543f;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.form-message[data-state="error"] {
+    background: #fbefed;
+    color: #8a2d22;
+}
+
+.form-message[data-state="info"] {
+    background: #f6f0e3;
+    color: #5b4a2c;
+}
+
+.auth-description {
+    margin-top: 14px;
+    color: #46534c;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.signup-dialog {
+    width: min(100% - 32px, 420px);
+    padding: 0;
+    border: 1px solid #dce2dd;
+    border-radius: 10px;
+    color: #202938;
+    box-shadow: 0 16px 48px rgba(16, 35, 27, 0.24);
+}
+
+.signup-dialog::backdrop {
+    background: rgba(15, 28, 23, 0.48);
+}
+
+.signup-dialog-content {
+    padding: 28px;
+}
+
+.signup-dialog h2 {
+    color: #176b52;
+    font-size: 23px;
+}
+
+.signup-dialog p {
+    margin-top: 12px;
+    color: #46534c;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.signup-dialog-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+.dialog-dismiss,
+.dialog-login {
+    min-height: 42px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #176b52;
+    border-radius: 6px;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dialog-dismiss {
+    background: #fff;
+    color: #176b52;
+}
+
+.dialog-login {
+    background: #176b52;
+    color: #fff;
+}
+
+.dialog-dismiss:focus-visible,
+.dialog-login:focus-visible {
+    outline: 3px solid rgba(23, 107, 82, 0.35);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 26px 22px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .signup-dialog-content {
+        padding: 24px 20px;
+    }
+}
